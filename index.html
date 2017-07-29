@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Create Component</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet">  
+  <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="jumbotron">
+    <div class="container-fluid text-center">
+      <h1>React Create Component</h1>
+      <p>A command line interface for building React components.</p>
+    </div>
+  </div>
+
+  <div class="container m-top">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Installation</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <p>As a global dependency</p>
+        <pre>$ yarn add rcc-cli --global</pre>
+        <pre>$ npm install rcc-cli -g</pre>
+        <p>
+          React Create Component ships with a executable file that binds to the command: <code>rcc</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container m-top">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Usage</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <p>RCC accepts three parameters: type, name, and path.</p>
+        <pre>$ rcc [type] [name] [path]</pre>
+        <p><b>Type: <strong>[Required]</strong></b> the type of component you wish to create. <strong>Container, Component, or Pure.</strong></p>
+        <p><b>Name: <strong>[Required]</strong></b> the name of the component to be created. This will not only be the name of the newly created file, but will also map to several instances inside of the component itself.</p>
+        <p><b>Path: <strong>[Optional]</strong></b> the directory path from cwd() that you wish to create a component. If not provided, it will be created in your current working directory.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container m-top">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Example</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container p-bottom">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <pre>$ rcc container HeaderContainer src/containers</pre>
+        <p>will generate the following file in <code>cwd()/src/containers</code></p>
+        <pre><code class="language-javascript">import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+class HeaderContainer extends Component {
+  state = {};
+
+  render() {
+    const props = {};
+
+    return (
+      < div >Hello from HeaderContainer< /div >
+    );
+  }
+}
+
+HeaderContainer.displayName = 'HeaderContainer';
+
+HeaderContainer.propTypes = {};
+
+function mapStateToProps(state) {
+  const { example } = state;
+  return {
+    example: example.examples,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    example: bindActionCreators(ExampleActions.exampleFunction, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+</code></pre>        
+
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+      <span>
+        <a href="mailto:blake.guilloud@gmail.com">
+          Blake Guilloud
+        </a>
+      </span>
+      &nbsp; | &nbsp;
+      <span>
+        <a href="http://www.github.com/blakeguilloud">Github</a>
+      </span>
+      &nbsp; | &nbsp;
+      <span>
+        <a href="https://www.npmjs.com/package/rcc-cli">npm</a>
+      </span>
+  </div>
+</body>
+</html>
