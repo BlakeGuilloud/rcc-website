@@ -4,8 +4,11 @@
   "description": "Website for RCC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "av1 deploy reactApp blakeguilloud default"
   },
   "author": "Blake Guilloud",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "av1-scripts": "^1.0.6"
+  }
 }
