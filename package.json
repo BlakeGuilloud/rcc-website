@@ -4,5 +4,8 @@
   "description": "Website for RCC",
   "main": "index.js",
   "author": "Blake Guilloud",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "deploy": "aws s3 sync ./ s3://rcc-website"
+  }
 }
